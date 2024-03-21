@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Main page" %}{% endblock %}
+{% block content %}
+  <div class="container">
+    <h1 class="display-4 text-center my-5">{% translate "Welcome to our Task Manager!" %}</h1>
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <p class="lead mb-5">{% translate "Our site provides built-in support for task management using the Django framework and the asynchronous Celery task queue." %}</p>
+        <h2 class="mb-3">{% translate "Site Features" %}</h2>
+        <ul class="list-group mb-5">
+          <li class="list-group-item">{% translate "Adding new tasks with the name and duration." %}</li>
+          <li class="list-group-item">{% translate "Managing existing tasks, including deleting and suspending them." %}</li>
+          <li class="list-group-item">{% translate "View a list of tasks with the current status (running, break, suspended, or completed)." %}</li>
+          <li class="list-group-item">{% translate "Support for interruptions in the performance of tasks with the ability to set the duration and interval between breaks." %}</li>
+        </ul>
+        <p class="lead mb-5">{% translate "Our website also offers an intuitive and simple interface that allows users to easily add and manage tasks. We are sure that our task manager will help you optimize your work and make it more productive!" %}</p>
+      </div>
+    </div>
+  </div>{% endblock %}

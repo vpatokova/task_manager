@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load tz %}
+{% load static %}
+{% load i18n %}
+{% load webpush_notifications %}
+{% block title %}{% translate "List of tasks" %}{% endblock %}
+{% block content %}
+  <div class="container">
+    <h1>{% translate "List of tasks" %}</h1>
+    {% webpush_button with_class="btn btn-primary" %}
+    <table class="table table-striped text-light">
+      <thead>
+      <tr>
+        <th scope="col">{% translate "Id" %}</th>
+        <th scope="col">{% translate "Name" %}</th>
+        <th scope="col">{% translate "Start time" %}</th>
+        <th scope="col">{% translate "Remaining time" %}</th>
+        <th scope="col">{% translate "Time until the beginning of the next break or the end of the current one" %}</th>
+        <th scope="col">{% translate "Status" %}</th>
+        <th scope="col">{% translate "Pause" %}</th>
+        <th scope="col">{% translate "Delete" %}</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for task in tasks %}
+        <tr class="task">
+          <td class="text-light task_id">{{ task.id }}</td>
+          <td class="text-light">{{ task.name }}</td>
+          <td class="text-light">{{ task.start_time|timezone:user_tz }}</td>
+          <td class="task_time text-light task_time">
+            {% if task.remaining_time.total_seconds > 0 %}
+              {{ task.remaining_time }}{% endif %}</td>
+          <td class="text-light task_time_to">
+            {% if task.is_with_breaks and task.status != "completed" %}
+              {{ task.time_to }}{% endif %}</td>
+          <td class="text-light task_status">{{ task.get_status_display }}</td>
+          <td class="text-light task_button_td">
+            <form action="{% url 'tasks:suspend' task.id %}" method="POST" class="task_button_facade">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary task_button_resume"
+                      {% if task.status == "completed" %}disabled{% endif %}>
+                {% if task.status == "paused" %}Resume{% else %}
+                  Suspend{% endif %}
+              </button>
+            </form>
+          </td>
+          <td class="text-light">
+            <form action="{% url 'tasks:delete' task.id %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <script src='{% static "js/jquery-3.6.4.min.js" %}'></script>
+  <script src="{% static "js/timer.js" %}"></script>
+{% endblock %}

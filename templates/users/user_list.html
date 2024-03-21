@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "User list" %}{% endblock %}
+{% block content %}
+  <div class="container">
+    <h1>{% translate "List of users" %}</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">{% translate "Login" %}</th>
+          <th scope="col">{% translate "Email" %}</th>
+          <th scope="col">{% translate "First name" %}</th>
+          <th scope="col">{% translate "Last name" %}</th>
+          <th scope="col">{% translate "Date of birth" %}</th>
+          <th scope="col">{% translate "Count coffee" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+          <tr>
+            <td><a href={% url "users:user_detail" user.id %}>{{ user.username }}</a></td>
+            <td>{{ user.email|default:{% translate "not set" as not_set %} }}</td>
+            <td>{{ user.first_name|default:{{ not_set }} }}</td>
+            <td>{{ user.last_name|default:{{ not_set }} }}</td>
+            <td>{{ user.profile.birthday|default:{{ not_set }} }}</td>
+            <td>{{ user.profile.coffee_count }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

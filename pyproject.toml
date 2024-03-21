@@ -1,0 +1,4 @@
+[tool.black]
+diff = true
+check = true
+line-length = 79

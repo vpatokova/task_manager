@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Activation" %}{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mt-5">
+          <div class="card-header">
+            <h5>{% translate "Activate the account" %}</h5>
+          </div>
+          <div class="card-body">
+            {% if activated %}
+              <p>{% translate "Successfull activation" %}</p>
+            {% else %}
+              <p>{% translate "Invalid link" %}</p>
+            {% endif %}
+            <a href="{% url 'homepage:home' %}" class="btn btn-secondary">{% translate "Return to the main page" %}</a>
+            <a href="{% url 'users:profile' %}" class="btn btn-primary">{% translate "Return to the profile" %}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

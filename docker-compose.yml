@@ -1,0 +1,82 @@
+version: "3.9"
+
+services:
+  backend:
+    <<: &backend
+      image: "backend:dev"
+      build:
+        target: development_build
+        context: .
+        dockerfile: ./docker/backend/Dockerfile
+        args:
+          DJANGO_ENV: development
+      volumes:
+        - static:/var/www/backend/static
+      depends_on:
+        - db
+        - tasks-broker
+      networks:
+        - db-network
+        - backend-network
+      environment:
+        DJANGO_DATABASE_HOST: db
+        REDIS_HOST: tasks-broker
+        REDIS_PORT: 6379
+    command: ./docker/backend/start.sh
+    env_file:
+      - ./config/backend/.env
+
+  tasks-background:
+    <<: *backend
+    command: ./docker/tasks-background/start.sh
+    env_file:
+      - ./config/backend/.env
+    depends_on:
+      - tasks-broker
+      - db
+    networks:
+      - tasks-network
+      - db-network
+
+  dashboard-tasks:
+    <<: *backend
+    command: ./docker/tasks-dashboard/start.sh
+    environment:
+      BROKER_URL: redis://tasks-broker:6379/
+    env_file:
+      - ./config/backend/.env
+    depends_on:
+      - tasks-broker
+      - db
+    networks:
+      - tasks-network
+      - db-network
+
+  tasks-broker:
+    image: "redis:7.0.10-alpine"
+    env_file:
+      - ./config/backend/.env
+    networks:
+      - tasks-network
+      - backend-network
+
+  db:
+    image: "postgres:15.2-alpine"
+    volumes:
+      - dev_db_data:/var/lib/postgresql/data/
+      - dev_db_data_backups:/backups
+    env_file:
+      - ./config/db/.env
+    networks:
+      - db-network
+
+volumes:
+  media: {}
+  static: {}
+  dev_db_data: {}
+  dev_db_data_backups: {}
+
+networks:
+  backend-network:
+  db-network:
+  tasks-network:

@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-20 01:35+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: feedback/forms.py:9
+msgid "Message text"
+msgstr "Message text"
+
+#: feedback/forms.py:10
+msgid "Enter the text of your message"
+msgstr "Enter the text of your message"
+
+#: feedback/forms.py:13
+msgid "Email address"
+msgstr "Email address"
+
+#: feedback/forms.py:14
+msgid "Enter your email address"
+msgstr "Enter your email address"
+
+#: feedback/forms.py:17
+msgid "Attached files"
+msgstr "Attached files"
+
+#: feedback/forms.py:18
+msgid "Select the files you want to attach to the message"
+msgstr "Select the files you want to attach to the message"
+
+#: feedback/models.py:7
+msgid "email"
+msgstr "email"
+
+#: feedback/models.py:10 feedback/models.py:30
+msgid "personal information"
+msgstr "personal information"
+
+#: feedback/models.py:14
+msgid "messsage text"
+msgstr "message text"
+
+#: feedback/models.py:15
+msgid "creation time"
+msgstr "creation time"
+
+#: feedback/models.py:17
+msgid "status"
+msgstr "status"
+
+#: feedback/models.py:20
+msgid "received"
+msgstr "Received"
+
+#: feedback/models.py:21
+msgid "processing"
+msgstr "Processing"
+
+#: feedback/models.py:22
+msgid "replied"
+msgstr "Replied"
+
+#: feedback/models.py:38 feedback/models.py:50
+msgid "feedback"
+msgstr "feedback"
+
+#: feedback/models.py:52 feedback/models.py:55
+msgid "file"
+msgstr "file"
+
+#: feedback/models.py:56
+msgid "files"
+msgstr "files"
+
+#: feedback/views.py:11
+msgid "Thanks for the feedback!"
+msgstr "Thanks for the feedback!"
+
+#: feedback/views.py:12
+msgid "Thank you for the feedback"
+msgstr "Thanks for the feedback! We will definitely listen to you!"
+
+#: feedback/views.py:30
+msgid "The form has been successfully submitted."
+msgstr "The form has been successfully submitted."

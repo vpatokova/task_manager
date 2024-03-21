@@ -1,0 +1,211 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-20 01:35+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: tasks/forms.py:15
+msgid ""
+"If you want to add breaks to the task, you need to fill in all the fields, "
+"otherwise leave the last two fields empty."
+msgstr ""
+"Если Вы хотите добавить перерывы к задаче, Вам надо заполнить все поля, "
+"иначе оставьте два последних поля пустыми"
+
+#: tasks/forms.py:31
+msgid "Duration in hh:mm:ss format"
+msgstr "Длительность в формате hh:mm:ss"
+
+#: tasks/forms.py:33
+msgid "Time between breaks in hh:mm:ss format"
+msgstr "Время между перерывами в формате hh:mm:ss"
+
+#: tasks/forms.py:36
+msgid "Duration of breaks in hh:mm:ss format"
+msgstr "Длительность перерывов в формате hh:mm:ss"
+
+#: tasks/models.py:11
+msgid "name"
+msgstr "название"
+
+#: tasks/models.py:13
+msgid "user"
+msgstr "пользователь"
+
+#: tasks/models.py:15
+msgid "start time"
+msgstr "время начала"
+
+#: tasks/models.py:16
+msgid "duration"
+msgstr "длительность"
+
+#: tasks/models.py:17
+msgid "is with breaks?"
+msgstr "присутствуют ли перерывы в задаче?"
+
+#: tasks/models.py:19
+msgid "time between breaks"
+msgstr "время между перерывами"
+
+#: tasks/models.py:22
+msgid "breaks duration"
+msgstr "длительность перерывов"
+
+#: tasks/models.py:25
+msgid "next break starts"
+msgstr "время начала следующего перерыва"
+
+#: tasks/models.py:28
+msgid "current break ends"
+msgstr "время конца текущего перерыва"
+
+#: tasks/models.py:30
+msgid "ending time"
+msgstr "время конца"
+
+#: tasks/models.py:32
+msgid "status"
+msgstr "статус"
+
+#: tasks/models.py:35
+msgid "running"
+msgstr "запущена"
+
+#: tasks/models.py:36
+msgid "break"
+msgstr "перерыв"
+
+#: tasks/models.py:37
+msgid "completed"
+msgstr "выполнена"
+
+#: tasks/models.py:38
+msgid "paused"
+msgstr "задача приостановлена"
+
+#: tasks/models.py:43
+msgid "task suspension time"
+msgstr "время приостановки выполнения задачи"
+
+#: tasks/models.py:46
+msgid "celery-task's id"
+msgstr "id Celery-задачи"
+
+#: tasks/models.py:49
+msgid "where was the task suspended"
+msgstr "где было приостановлено выполнение задания"
+
+#: tasks/models.py:55
+msgid ""
+"the task has not been suspended yet or the error has already been taken into "
+"account"
+msgstr "задача еще не была приостановлена или ошибка уже была учтена"
+
+#: tasks/models.py:59
+msgid "the task was suspended during the first sleep"
+msgstr "задача была приостановлена во время первого sleep"
+
+#: tasks/models.py:60
+msgid "the task was suspended during the second sleep"
+msgstr "задача была приостановлена во время второго sleep"
+
+#: tasks/models.py:61
+msgid "the task was suspended during the third sleep"
+msgstr "задача была приостановлена во время третьего sleep"
+
+#: tasks/models.py:65
+msgid "sleep start time"
+msgstr "время начала"
+
+#: tasks/models.py:73
+msgid "task"
+msgstr "задача"
+
+#: tasks/models.py:74
+msgid "tasks"
+msgstr "задачи"
+
+#: tasks/tasks.py:48
+msgid "Time to rest!"
+msgstr "Время отдыха!"
+
+#: tasks/tasks.py:51
+#, python-format
+msgid "It's time to take a break from the '%(name)s' for %(breaks_duration)s!"
+msgstr "Время отдохнуть от задачи '%(name)s' на %(breaks_duration)s!"
+
+#: tasks/tasks.py:64
+#, python-format
+msgid ""
+"'It's time to take a break from the '%(name)s' for %(breaks_duration)s!' has "
+"been sent"
+msgstr ""
+"'Время отдохнуть от задачи '%(name)s' на %(breaks_duration)s!' было "
+"отправлено"
+
+#: tasks/tasks.py:82
+msgid "Time's up!"
+msgstr "Время вышло!"
+
+#: tasks/tasks.py:84
+#, python-format
+msgid "Task '%(name)s' is finished!"
+msgstr "Задача '%(name)s' закончилась!"
+
+#: tasks/tasks.py:90
+#, python-format
+msgid "'Task '%(name)s' is finished!' has been sent"
+msgstr "'Задача '%(name)s' закончилась!' было отправлено"
+
+#: tasks/tasks.py:120
+msgid "It's time to get back to work!"
+msgstr "Время вернуться к работе!"
+
+#: tasks/tasks.py:122
+#, python-format
+msgid "It's time to continue the '%(name)s'!"
+msgstr "Время вернуться к задаче '%(name)s'!"
+
+#: tasks/tasks.py:129
+#, python-format
+msgid "'It's time to continue the '%(name)s'!' has been sent"
+msgstr "'Время вернуться к задаче '%(name)s'!' было отправлено"
+
+#: tasks/tasks.py:138
+msgid "Have a rest!"
+msgstr "Отдохните!"
+
+#: tasks/tasks.py:141
+#, python-format
+msgid ""
+"The time of the '%(name)s' task is not over yet, but according to the "
+"schedule there is only a break left. Have a rest!"
+msgstr ""
+"Время выполнения задачи '%(name)s' еще не закончилось, но, согласно "
+"расписанию, у Вас остался только перерыв. Время отдыха!"
+
+#: tasks/tasks.py:152
+#, python-format
+msgid ""
+"'The time of the '%(name)s' task is not over yet, but according to the "
+"schedule there is only a break left. Have a rest!' has been sent"
+msgstr ""
+"'Время выполнения задачи '%(name)s' еще не закончилось, но, согласно "
+"расписанию, у Вас остался только перерыв. Время отдыха!' было отправлено"

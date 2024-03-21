@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-20 01:35+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: users/forms.py:18
+msgid "Email text blocked account"
+msgstr ""
+"Ваш аккаунт был заблокирован из-за частых неправильных попыток входа. Если "
+"это были Вы, то Вы можете разблокировать аккаунт, перейдя по ссылке внизу:"
+
+#: users/forms.py:19
+msgid "Your account is blocked"
+msgstr "Ваш аккаунт заблокирован"
+
+#: users/forms.py:60
+msgid "Your account has been blocked"
+msgstr ""
+"Ваш аккаунт был заблокирован из-за частых неправильных попыток входа. Если "
+"это были Вы, проверьте Ваш электронный ящик"
+
+#: users/forms.py:72
+msgid "Email is not unique"
+msgstr "Пользователь с таким адресом электронной почты уже существует"
+
+#: users/models.py:14
+msgid "User"
+msgstr "Пользователь"
+
+#: users/models.py:16
+msgid "Birthday"
+msgstr "День рождения"
+
+#: users/models.py:18
+msgid "Profile photo"
+msgstr "Аватарка"
+
+#: users/models.py:21
+msgid "Question about coffee"
+msgstr "Сколько раз Вы пытались приготовить кофе?"
+
+#: users/models.py:24
+msgid "Last attempt to log in"
+msgstr "Последняя попытка входа"
+
+#: users/models.py:31
+msgid "Users's profile"
+msgstr "Профиль пользователя"
+
+#: users/models.py:32
+msgid "Users' profiles"
+msgstr "Профили пользователей"
+
+#: users/views.py:22 users/views.py:39
+msgid "This user is already activated"
+msgstr "Этот пользователь уже активирован"
+
+#: users/views.py:28 users/views.py:51
+msgid "The account has been successfully activated"
+msgstr "Аккаунт был успешно активирован"
+
+#: users/views.py:31 users/views.py:54
+msgid "The activation link has expired"
+msgstr "Ссылка для активации истекла"
+
+#: users/views.py:78
+msgid "You have successfully drunk coffee!"
+msgstr "Вы успешно выпили кофе!"
+
+#: users/views.py:89
+msgid "Your profile has been updated!"
+msgstr "Ваш профиль был обновлен!"
+
+#: users/views.py:108
+msgid "Activate your account"
+msgstr "Активировать аккаунт"
+
+#: users/views.py:110
+#, python-format
+msgid ""
+"Hello, %(name)s\n"
+"Please follow the link below to activate your account"
+msgstr ""
+"Здравствуйте, %(name)s\n"
+"Пожалуйста перейдите по ссылке внизу, чтобы активировать Ваш аккаунт"
+
+#: users/views.py:122
+msgid "A link to activate your account has been sent to your email"
+msgstr ""
+"Сслыка для активации аккаунта была отправлена на Вашу электронную почту"

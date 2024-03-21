@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  backend:
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    build:
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
+
+  db:
+    ports:
+      - "5432:5432"
+
+  tasks-broker:
+    expose:
+      - "6379"
+
+  tasks-background:
+    ports:
+      - "5554:5554"
+    volumes:
+      - .:/code
+    build:
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
+
+  dashboard-tasks:
+    ports:
+      - "5555:5555"
+    volumes:
+      - .:/code
+    build:
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}

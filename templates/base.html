@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+{% load webpush_notifications %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="apple-touch-icon" sizes="180x180"
+        href='{% static "fav-ico/apple-touch-icon.png" %}'>
+  <link rel="icon" type="image/png" sizes="32x32"
+        href='{% static "fav-ico/favicon-32x32.png" %}'>
+  <link rel="icon" type="image/png" sizes="16x16"
+        href='{% static "fav-ico/favicon-16x16.png" %}'>
+  <link rel="manifest" href='{% static "fav-ico/site.webmanifest" %}'>
+  <link rel="mask-icon" href='{% static "fav-ico/safari-pinned-tab.svg" %}'
+        color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/x-icon" href='{% static "img/bootstrap.ico" %}'>
+  <link rel="stylesheet" href='{% static "css/bootstrap.css" %}'>
+  <link rel="stylesheet" href='{% static "css/bootstrap.rtl.css" %}'>
+  <link rel="stylesheet" href='{% static "css/bootstrap-grid.css" %}'>
+  <link rel="stylesheet" href='{% static "css/bootstrap-grid.rtl.css" %}'>
+  <link rel="stylesheet" href='{% static "css/bootstrap-reboot.css" %}'>
+  <link rel="stylesheet" href='{% static "css/bootstrap-reboot.rtl.css" %}'>
+  <link rel="stylesheet" href='{% static "css/bootstrap-utilities.css" %}'>
+  <link rel="stylesheet" href='{% static "css/bootstrap-utilities.rtl.css" %}'>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Old+Standard+TT&display=swap&subset=cyrillic"
+        rel="stylesheet">
+  <link rel="stylesheet" href='{% static "css/style.css" %}'>
+  {% webpush_header %}
+</head>
+<body>{% include "includes/header.html" %}
+<main>
+  <div class="container">{% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+      {{ message }}
+    </div>
+  {% endfor %}</div>
+  {% block content %}{% endblock %}</main>
+{% include "includes/footer.html" %}
+<script src='{% url "javascript-catalog" %}'></script>
+<script src='{% static "js/bootstrap.bundle.js" %}'></script>
+<script src='{% static "js/bootstrap.esm.js" %}'></script>
+<script src='{% static "js/bootstrap.js" %}'></script>
+<script src="{% static "js/timezone.js" %}"></script>
+</body>
+</html>

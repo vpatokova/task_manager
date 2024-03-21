@@ -1,0 +1,16 @@
+<footer>
+  <div>
+    <a class="footer-email" href="mailto:nemollirik@gmail.com">nemollirik@gmail.com</a>
+    <a class="footer-phone" href="tel:+79223975627">+7 (123) 456-78-90</a>
+  </div>
+  <p>&copy; Task manager <span id="year">{% now "Y" %}</span></p>
+</footer>
+<script>
+    var dateStr = "{% now "Y-m-d" %}T{% now "H:i:s" %}Z";
+    var serverDate = Date.parse(dateStr);
+    var now = Date.now();
+    var diffTime = Math.abs(serverDate - now)
+    var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    var date = new Date(diffDays < 1 ? now : serverDate);
+    $("year").text(date.getFullYear());
+</script>
