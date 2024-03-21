@@ -1,0 +1,52 @@
+name: Docker CI
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  docker:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ 3.11.1 ]
+    env:
+      DOCKER_BUILDKIT: 1
+      COMPOSE_DOCKER_CLI_BUILD: 1
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Prepare script before docker
+      env:
+        SECRET_DJANGO_SECRET_KEY: ${{ secrets.SECRET_DJANGO_SECRET_KEY }}
+      run: |
+        pip install dump-env docker-image-size-limit
+
+        dump-env \
+          -t config/backend/.env.template \
+          -p 'SECRET_' \
+          --strict SECRET_DJANGO_SECRET_KEY > config/backend/.env
+
+        dump-env -t config/db/.env.template > config/db/.env
+
+    - name: Check config
+      run: |
+        docker-compose -f docker-compose.yml \
+          -f docker-compose.override.yml config --quiet
+
+    - name: Test docker build
+      run:  |
+        docker-compose build \
+          --build-arg BUILDKIT_INLINE_CACHE=1 \
+          --progress=plain backend
+
+        sudo docker-compose run --user=root --rm backend ./docker/backend/ci.sh
+
+        disl "backend:dev" 950MiB
